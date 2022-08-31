@@ -6,47 +6,8 @@
 #include <algorithm>
 #include <vector>
 
-template<typename T>
-void Print(const T& value_set)
-{
-    for(auto i: value_set)
-    {
-        i.Print();
-    }
-    
-    std::cout<<"\n";
-}
-
-class CargoCar
-{
-private:
-    double weight = 0.;
-    double volume = 0.;
-
-public:
-    CargoCar(){}
-    CargoCar(double w, double v) : weight(w), volume(v) {}
-
-    bool operator>(const CargoCar& obj) const
-    {
-        if(weight > obj.weight)
-        {
-            return true;
-        }
-        else if(weight == obj.weight) 
-        {
-            if(volume > obj.volume)
-            {
-                return true;
-            }
-        }
-        
-        return false;
-    }
-
-    void Print() const {std::cout<<"CargoCar("<<weight<<","<<volume<<") ";}
-    ~CargoCar(){}
-};
+#include "../includes/CargoCar.h"
+#include "../includes/utils.h"
 
 int main()
 {
