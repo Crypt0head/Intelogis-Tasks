@@ -1,17 +1,26 @@
 #pragma once
 #include <iostream>
+#include "../includes/Cargo.h"
 
 class CargoCar
 {
-private:
-    double weight_cap = 0.;
-    double volume_cap = 0.;
+protected:
+    double weight_cap = -1.;
+    double volume_cap = -1.;
 
 public:
     CargoCar(){}
     CargoCar(double w, double v) : weight_cap(w), volume_cap(v) {}
     CargoCar(const CargoCar& obj) : weight_cap(obj.weight_cap), volume_cap(obj.volume_cap){}
-    CargoCar& operator=(const CargoCar& obj)
+    virtual double GetWeightCap() const
+    {
+        return weight_cap;
+    }
+    virtual double GetVolumeCap() const
+    {
+        return volume_cap;
+    }
+    virtual CargoCar& operator=(const CargoCar& obj)
     {
         if(this!=&obj)
         {
@@ -22,7 +31,7 @@ public:
         return *this;
     }
 
-    bool operator>(const CargoCar& obj) const
+    virtual bool operator>(const CargoCar& obj) const
     {
         if(this == &obj)
             return true;
@@ -42,7 +51,7 @@ public:
         return false;
     }
 
-    bool operator<(const CargoCar& obj) const
+    virtual bool operator<(const CargoCar& obj) const
     {
         if(this == &obj)
             return true;
@@ -61,7 +70,15 @@ public:
         
         return false;
     }
+    virtual bool IsFit(const Cargo& cargo) const
+    {
+        if((weight_cap>=cargo.GetWeight())&&(volume_cap>=cargo.GetVolume()))
+        {
+            return true;
+        }
 
-    void Print() const {std::cout<<"CargoCar("<<weight_cap <<","<<volume_cap <<") ";}
-    ~CargoCar(){}
+        return false;
+    }
+    virtual void Print() const {std::cout<<"CargoCar("<<weight_cap <<","<<volume_cap <<") ";}
+    virtual ~CargoCar(){}
 };
