@@ -11,15 +11,15 @@
 
 int main()
 {
-    std::vector<CargoCar> vec{CargoCar(2, 7), CargoCar(10, 5),CargoCar(5, 2),CargoCar(8, 10),CargoCar(3, 6),CargoCar(4, 2),CargoCar(4, 5)};
+    std::vector<CargoCar> cars_set{CargoCar(2, 7), CargoCar(10, 5),CargoCar(5, 2),CargoCar(8, 10),CargoCar(3, 6),CargoCar(4, 2),CargoCar(4, 5)};
 
     std::cout<<"Before:\n";
-    Print(vec);
+    Print(cars_set);
 
-    std::sort(vec.begin(), vec.end(), std::greater<CargoCar>());
+    std::sort(cars_set.begin(), cars_set.end(), std::greater<CargoCar>());
 
     std::cout<<"After:\n";
-    Print(vec);
+    Print(cars_set);
 
     return 0;
 }

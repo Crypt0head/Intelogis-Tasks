@@ -1,4 +1,3 @@
-#pragma once
 #include <iostream>
 
 template<typename T>
@@ -6,7 +5,7 @@ void Print(const T& value_set)
 {
     for(auto i: value_set)
     {
-        i.Print();
+        i.print();
     }
     
     std::cout<<"\n";
@@ -17,7 +16,7 @@ void Print_p(const T& value_set)
 {
     for(auto i: value_set)
     {
-        i->Print();
+        i->print();
     }
     
     std::cout<<"\n";
