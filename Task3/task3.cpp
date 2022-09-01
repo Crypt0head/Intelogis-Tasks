@@ -4,8 +4,6 @@
 
 #include <iostream>
 #include <vector>
-#include <array>
-#include <list>
 
 template<typename T, typename itT = typename T::iterator>
 void Increment(T& value_set, itT it)
@@ -30,17 +28,17 @@ void Print(const T& value_set)
 
 int main()
 {
-    std::vector<int> vec{};
-    std::array<int, 6> arr{0,0,0,0,0,0};
-    std::list<long> lis{0,0,0,0,0,0};
+    std::vector<int> vec{0, 0, 0, 0, 0};
 
-    Increment(vec, vec.begin());
-    Increment(arr, arr.begin());
-    Increment(lis, lis.begin());
+    std::cout<<"Before:\n";
 
     Print(vec);
-    Print(arr);
-    Print(lis);
+
+    Increment(vec, vec.begin());
+
+    std::cout<<"After:\n";
+
+    Print(vec);
 
     return 0;
 }
