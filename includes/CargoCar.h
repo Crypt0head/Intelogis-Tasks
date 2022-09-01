@@ -70,6 +70,13 @@ public:
         
         return false;
     }
+    virtual int operator+=(int value)
+    {
+        weight_cap+=value;
+        volume_cap+=value;
+        
+        return 0;
+    }
     virtual bool IsFit(const Cargo& cargo) const
     {
         if((weight_cap>=cargo.GetWeight())&&(volume_cap>=cargo.GetVolume()))

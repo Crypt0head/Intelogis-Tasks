@@ -68,6 +68,15 @@ public:
         
         return false;
     }
+
+    virtual int operator+=(int value)
+    {
+        weight+=value;
+        volume+=value;
+        
+        return 0;
+    }
+    
     void Print() const {std::cout<<"Cargo("<<weight<<","<<volume<<") ";}
     ~Cargo(){}
 
