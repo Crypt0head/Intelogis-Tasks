@@ -15,6 +15,7 @@ struct Vertex
     bool mark = false;
     Routes routes;
     Vertex(std::string str) : name(str){}
+    std::pair<bool, Vertex*> Find(Vertex* v);
 };
 
 class RoadGraph

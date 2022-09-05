@@ -1,5 +1,28 @@
 #include "../includes/RoadGraph.h"
 
+std::pair<bool, Vertex*> Vertex::Find(Vertex* v)
+{
+    this->mark=true;
+
+    std::pair<bool,Vertex*> res;
+
+    for(auto i : routes)
+    {
+        // if(("1" == i.first->name))
+        // {
+        //     return std::pair<bool, Vertex*>(true,i.first);
+        // }
+        // else
+        // {
+        //     res = i.first->Find(v);
+        // }
+
+        std::cout<<i.first->name<<"\n";
+    }
+
+    return res;
+}
+
 void RoadGraph::AddVetrtex(const std::string& name)
 {
     if (auto it = map.find(name);it == map.end())
